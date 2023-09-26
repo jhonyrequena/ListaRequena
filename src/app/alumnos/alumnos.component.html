@@ -1,0 +1,23 @@
+
+<h1>Listado de Alumnos Aprobados y Reprobados</h1>
+
+<table>
+    <thead [style.font-size]="'25px'">
+        <tr>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Fecha de Inscripción</th>
+            <th>Nota</th>
+            <th>Estatus</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let alumno of alumnos" [ngStyle]="{'background-color': alumno.nota < 5? 'rgb(179, 19, 18)' : 'rgb(1, 106, 112)'}">
+            <td> {{ alumno.apellido | uppercase }} </td>
+            <td> {{ alumno.nombre }} </td>
+            <td> {{ alumno.inscripcion | date }} </td>
+            <td> {{ alumno.nota }} </td>
+            <td> {{ alumno.nota >= 5 ? 'Aprobado' : 'Reprobado' }} </td>
+        </tr>
+    </tbody>
+</table>
